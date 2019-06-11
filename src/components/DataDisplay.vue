@@ -1,15 +1,21 @@
 <template>
   <div id="data-display">
-    <p>{{ toDisplay }}</p>
+    <p v-if="isFetching">Fetching ...</p>
+    <DataTable v-if="toDisplay != null" :data="toDisplay" />
   </div>
 </template>
 
 <script>
-const url = "https://swapi.co/api/people/1/"
-// fetch(url)
-//   .then(response => response.json())
-//   .then(json =>  console.log(json))
+import DataTable from '@/components/DataTable.vue'
+const url = "https://swapi.co/api/people/"
 
+const cleanData = (data) => {
+  console.log('NANI?!')
+  data.results.map(obj => {
+    console.log(`${k} : ${v}`)
+  })
+  return data.results
+}
 
 export default {
   name: "DataDisplay",
@@ -20,8 +26,7 @@ export default {
         .then(res => res.json())
         .then(json => {
           this.isFetching = false
-          this.toDisplay = json
-          console.log(json)
+          this.toDisplay = cleanData(json)
         })
         .catch(err => this.isFetching = false)
     }
@@ -29,12 +34,15 @@ export default {
   data() {
       return {
           isFetching: false,
-          toDisplay: 'Display here'
+          toDisplay: null
       }
   },
   mounted: function() {
-    console.log('Mounted')
+    console.log('DataDisplay mounted')
     this.getData(url)
+  },
+  components: {
+    DataTable
   }
 }
 </script>
