@@ -1,6 +1,12 @@
 <template>
     <div id="data-table">
-        <p>{{ data }}</p>
+        <span v-for="(column, i) in data.columns" :key="(`c${i}`)">
+           - {{column}} -
+        </span>
+        <div class="row" v-for="(row, i) in data.data" :key="(`r${i}`)">
+            <!-- <span class="cell" v-for="(row., i) in row"></span> -->
+            {{Object.keys(row).map(key => row[key])}}
+        </div>
     </div>
 </template>
 

@@ -10,11 +10,14 @@ import DataTable from '@/components/DataTable.vue'
 const url = "https://swapi.co/api/people/"
 
 const cleanData = (data) => {
-  console.log('NANI?!')
-  data.results.map(obj => {
-    console.log(`${k} : ${v}`)
-  })
-  return data.results
+  // Get the columns
+  const cols = Object.keys(data.results[0])
+  // Clean up results so they kan be iterated over easier
+  const cleaned = {
+    columns: cols,
+    data: data.results
+  }
+  return cleaned
 }
 
 export default {
