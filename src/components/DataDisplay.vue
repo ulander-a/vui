@@ -7,15 +7,16 @@
 
 <script>
 import DataTable from '@/components/DataTable.vue'
-const url = "https://swapi.co/api/people/"
+const url = "https://swapi.co/api/planets/"
 
 const cleanData = (data) => {
   // Get the columns
-  const cols = Object.keys(data.results[0])
-  // Clean up results so they kan be iterated over easier
+  const columns = Object.keys(data.results[0])
+  // Get the rows
+  const rows = data.results.map(res => Object.values(res))
   const cleaned = {
-    columns: cols,
-    data: data.results
+    columns: columns,
+    rows: rows
   }
   return cleaned
 }

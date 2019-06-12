@@ -1,13 +1,16 @@
 <template>
-    <div id="data-table">
-        <span v-for="(column, i) in data.columns" :key="(`c${i}`)">
-           - {{column}} -
-        </span>
-        <div class="row" v-for="(row, i) in data.data" :key="(`r${i}`)">
-            <!-- <span class="cell" v-for="(row., i) in row"></span> -->
-            {{Object.keys(row).map(key => row[key])}}
-        </div>
-    </div>
+    <table id="data-table">
+        <tbody>
+            <th v-for="(column, i) in data.columns" :key="(`c${i}`)">
+                {{column}}
+            </th>
+            <tr class="row" v-for="(row, i) in data.rows" :key="(`r${i}`)">
+                <td class="cell" v-for="(cell, i) in row" :key="(`c${i}`)">
+                    <small>{{ cell }}</small>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </template>
 
 <script>
@@ -19,3 +22,4 @@ export default {
     }
 }
 </script>
+
