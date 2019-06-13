@@ -8,7 +8,7 @@
 <script>
 import Api from '@/components/Api.vue'
 export default {
-    name: 'data',
+    name: 'Data',
     components: {
         Api
     }

@@ -6,7 +6,8 @@
             </th>
             <tr class="row" v-for="(row, i) in data.rows" :key="(`r${i}`)">
                 <td class="cell" v-for="(cell, i) in row" :key="(`c${i}`)">
-                    <small>{{ cell }}</small>
+                    <router-link v-if="i == 0" :to="(`/details/${row.length}`)">{{ cell }}</router-link>
+                    <small v-else>{{ cell }}</small>
                 </td>
             </tr>
         </tbody>
@@ -16,10 +17,7 @@
 <script>
 export default {
     name: "DataTable",
-    props: { data: null },
-    mounted: function() {
-        console.log('DataTable mounted')
-    }
+    props: { data: null }
 }
 </script>
 

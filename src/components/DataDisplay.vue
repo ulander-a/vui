@@ -1,13 +1,15 @@
 <template>
   <div id="data-display">
-    <p v-if="isFetching">Fetching ...</p>
+    <Fetching v-if="isFetching" />
     <DataTable v-if="toDisplay != null" :data="toDisplay" />
   </div>
 </template>
 
 <script>
 import DataTable from '@/components/DataTable.vue'
-const url = "https://swapi.co/api/planets/"
+import Fetching from '@/components/Fetching.vue'
+
+const url = 'https://swapi.co/api/planets/'
 
 const cleanData = (data) => {
   // Get the columns
@@ -22,7 +24,7 @@ const cleanData = (data) => {
 }
 
 export default {
-  name: "DataDisplay",
+  name: 'DataDisplay',
   methods: {
     getData(url) {
       this.isFetching = true
@@ -42,11 +44,11 @@ export default {
       }
   },
   mounted: function() {
-    console.log('DataDisplay mounted')
     this.getData(url)
   },
   components: {
-    DataTable
+    DataTable,
+    Fetching
   }
 }
 </script>
