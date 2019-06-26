@@ -9,7 +9,7 @@
 import DataTable from '@/components/DataTable.vue'
 import Fetching from '@/components/Fetching.vue'
 
-const url = 'https://swapi.co/api/planets/'
+const url = 'https://swapi.co/api/people/'
 
 const cleanData = (data) => {
   // Get the columns
@@ -23,6 +23,7 @@ const cleanData = (data) => {
   return cleaned
 }
 
+// TODO: Move fetch to view
 export default {
   name: 'DataDisplay',
   methods: {
@@ -34,7 +35,10 @@ export default {
           this.isFetching = false
           this.toDisplay = cleanData(json)
         })
-        .catch(err => this.isFetching = false)
+        .catch(err => {
+          this.isFetching = false
+          console.log(err)
+        });
     }
   },
   data() {

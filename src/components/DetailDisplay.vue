@@ -1,12 +1,12 @@
 <template>
     <div id="detail-display">
         <p>Here be details</p>
-        <small>{{ $route.params.id }}</small>
+        <!-- <small>{{ $route.params }}</small> -->
     </div>
 </template>
 
 <script>
 export default {
-    name: 'DetailDisplay'
+    name: 'DetailDisplay',
 }
 </script>
