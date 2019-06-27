@@ -1,7 +1,7 @@
 <template>
   <div id="details">
     <Fetching v-if="isFetching"/>
-    <DetailDisplay />
+    <DetailDisplay :data="toDisplay" />
   </div>
 </template>
 
@@ -20,11 +20,12 @@ export default {
   methods: {
     getData(url) {
       this.isFetching = true;
-      fetch(`${url}/${this.$route.params.id}`)
+      // console.log(`${url}${this.$route.params.id}`)
+      fetch(`${url}${this.$route.params.id}`)
         .then(res => res.json())
         .then(json => {
           this.isFetching = false;
-          console.log('ayy')
+          this.toDisplay = json
         })
         .catch(err => {
           this.isFetching = false
@@ -34,7 +35,8 @@ export default {
   },
   data() {
     return {
-      isFetching: false
+      isFetching: false,
+      toDisplay: null
     };
   },
   mounted: function() {
