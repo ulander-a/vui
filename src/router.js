@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home'
 import About from './views/About'
-import Data from './views/Data'
+import Api from './views/Api'
 import Details from './views/Details'
 
 Vue.use(Router)
@@ -20,9 +20,9 @@ export default new Router({
       component: About
     },
     {
-      path: '/data',
-      name: 'data',
-      component: Data
+      path: '/api',
+      name: 'api',
+      component: Api
     },
     {
       path: '/details/:id',

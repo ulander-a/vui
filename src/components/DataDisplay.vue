@@ -1,58 +1,38 @@
 <template>
   <div id="data-display">
-    <Fetching v-if="isFetching" />
     <DataTable v-if="toDisplay != null" :data="toDisplay" />
   </div>
 </template>
 
 <script>
 import DataTable from '@/components/DataTable.vue'
-import Fetching from '@/components/Fetching.vue'
 
-const url = 'https://swapi.co/api/people/'
-
-const cleanData = (data) => {
-  // Get the columns
-  const columns = Object.keys(data.results[0])
-  // Get the rows
-  const rows = data.results.map(res => Object.values(res))
-  const cleaned = {
-    columns: columns,
-    rows: rows
-  }
-  return cleaned
-}
-
-// TODO: Move fetch to view
 export default {
   name: 'DataDisplay',
-  methods: {
-    getData(url) {
-      this.isFetching = true
-      fetch(url)
-        .then(res => res.json())
-        .then(json => {
-          this.isFetching = false
-          this.toDisplay = cleanData(json)
-        })
-        .catch(err => {
-          this.isFetching = false
-          console.log(err)
-        });
+  data() {
+    return { toDisplay: null }
+  },
+  props: {
+    rawData: null
+  },
+  watch: {
+    rawData: function() {
+      this.toDisplay = this.cleanData(this.rawData)
     }
   },
-  data() {
-      return {
-          isFetching: false,
-          toDisplay: null
+  methods: {
+    cleanData(data) {
+      const columns = Object.keys(data.results[0])
+      const rows = data.results.map(res => Object.values(res))
+      const cleaned = {
+        columns: columns,
+        rows: rows
       }
-  },
-  mounted: function() {
-    this.getData(url)
+      return cleaned
+    }
   },
   components: {
     DataTable,
-    Fetching
   }
 }
 </script>
