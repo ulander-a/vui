@@ -2,7 +2,7 @@
   <div id="details">
     <h1>Details</h1>
     <Fetching v-if="isFetching"/>
-    <DetailDisplay :data="toDisplay" />
+    <DetailDisplay :detailsData="toDisplay" />
   </div>
 </template>
 
@@ -33,7 +33,7 @@ export default {
         });
     }
   },
-  data() {
+  data: () => {
     return {
       isFetching: false,
       toDisplay: null

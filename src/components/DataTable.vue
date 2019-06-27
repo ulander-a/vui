@@ -2,7 +2,7 @@
     <table id="data-table">
         <tbody>
             <th v-for="(column, colIndex) in data.columns" :key="(`c${colIndex}`)">
-                {{column}}
+                {{ column }}
             </th>
             <tr class="row" v-for="(row, rowIndex) in data.rows" :key="(`r${rowIndex}`)">
                 <td class="cell" v-for="(cell, cellIndex) in row" :key="(`c${cellIndex}`)">

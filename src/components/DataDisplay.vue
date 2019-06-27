@@ -5,11 +5,12 @@
 </template>
 
 <script>
-import DataTable from '@/components/DataTable.vue'
+import DataTable from '@/components/DataTable'
+import { cleanData } from '@/lib/helpers.js'
 
 export default {
   name: 'DataDisplay',
-  data() {
+  data: () => {
     return { toDisplay: null }
   },
   props: {
@@ -17,18 +18,7 @@ export default {
   },
   watch: {
     rawData: function() {
-      this.toDisplay = this.cleanData(this.rawData)
-    }
-  },
-  methods: {
-    cleanData(data) {
-      const columns = Object.keys(data.results[0])
-      const rows = data.results.map(res => Object.values(res))
-      const cleaned = {
-        columns: columns,
-        rows: rows
-      }
-      return cleaned
+      this.toDisplay = cleanData(this.rawData)
     }
   },
   components: {

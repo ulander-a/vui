@@ -18,7 +18,7 @@ const url = 'https://swapi.co/api/people/'
 
 export default {
   name: 'Api',
-  data() {
+  data: () => {
     return {
       isFetching: false,
       fromApi: null
