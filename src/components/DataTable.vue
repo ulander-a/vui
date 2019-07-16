@@ -1,10 +1,10 @@
 <template>
     <table id="data-table">
         <tbody>
-            <th v-for="(column, colIndex) in data.columns" :key="(`c${colIndex}`)">
+            <th v-for="(column, colIndex) in tableData.columns" :key="(`c${colIndex}`)">
                 {{ column }}
             </th>
-            <tr class="row" v-for="(row, rowIndex) in data.rows" :key="(`r${rowIndex}`)">
+            <tr class="row" v-for="(row, rowIndex) in tableData.rows" :key="(`r${rowIndex}`)">
                 <td class="cell" v-for="(cell, cellIndex) in row" :key="(`c${cellIndex}`)">
                     <router-link v-if="cellIndex == 0" :to="(`/details/${rowIndex + 1}`)">{{ cell }}</router-link>
                     <small v-else>{{ cell }}</small>
@@ -17,7 +17,7 @@
 <script>
 export default {
     name: "DataTable",
-    props: { data: null }
+    props: { tableData: null }
 }
 </script>
 

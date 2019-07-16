@@ -1,6 +1,6 @@
 <template>
   <div id="data-display">
-    <DataTable v-if="toDisplay != null" :data="toDisplay" />
+    <DataTable v-if="toDisplay != null" :tableData="toDisplay" />
   </div>
 </template>
 

@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Messages />
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
@@ -8,6 +9,18 @@
     <router-view />
   </div>
 </template>
+
+<script>
+import Messages from './components/Messages'
+
+export default {
+  name: 'App',
+  components: {
+    Messages
+  }
+}
+</script>
+
 
 <style>
 #app {

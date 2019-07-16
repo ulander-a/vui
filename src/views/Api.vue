@@ -31,11 +31,13 @@ export default {
           .then(res => res.json())
           .then(json => {
             this.isFetching = false
+            this.$emit('emit-message', 'New message!')
+            console.log('Message emitted')
             this.fromApi = json
           })
           .catch(err => {
             this.isFetching = false
-            console.log(err)
+            this.$emit('display-message')
           })
       }
   },
@@ -44,7 +46,7 @@ export default {
   },
   components: {
     DataDisplay,
-    Fetching
+    Fetching,
   }
 }
 </script>
