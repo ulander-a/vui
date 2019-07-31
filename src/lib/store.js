@@ -9,6 +9,10 @@ export const store = new Vuex.Store({
       type: null,
       show: false,
       body: ''
+    },
+    user: {
+      authenticated: false,
+      username: ''
     }
   },
   mutations: {

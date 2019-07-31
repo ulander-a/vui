@@ -29,7 +29,6 @@ export default {
         })
         .catch(err => {
           this.isFetching = false
-          console.log(err)
         })
     }
   },
