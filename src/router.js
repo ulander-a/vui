@@ -4,6 +4,7 @@ import Home from './views/Home'
 import About from './views/About'
 import Api from './views/Api'
 import Details from './views/Details'
+import Login from './views/Login'
 
 Vue.use(Router)
 
@@ -27,7 +28,12 @@ export default new Router({
     {
       path: '/details/:id',
       name: 'details',
-      component: Details,
+      component: Details
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     }
   ]
 })

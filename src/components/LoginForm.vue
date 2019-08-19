@@ -25,13 +25,31 @@ export default {
         login: function() {
             const email = this.email
             const password = this.password
-            this.$store.dispatch('login', { email, password })
-                .then(() => this.$router.push('/'))
-                .catch(err => this.$store.commit('setMessage', {
+            
+            if (email == 'admin@example.com' && password == 'password') {
+                this.$store.commit('authenticate', { username: 'admin' })
+                this.$store.commit('setMessage', {
+                    type: 'success',
+                    show: true,
+                    body: `Welcome admin`
+                })
+            } else {
+                this.$store.commit('setMessage', {
                     type: 'error',
                     show: true,
-                    body: err
-                }))
+                    body: 'nah'
+                })
+            }
+
+            // this.$store.dispatch('login', { email, password })
+            //     .then(() => {
+            //         console.log(email, password)
+            //     })
+            //     .catch(err => this.$store.commit('setMessage', {
+            //         type: 'error',
+            //         show: true,
+            //         body: err
+            //     }))
         }
     }
 }

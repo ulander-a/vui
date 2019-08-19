@@ -22,6 +22,12 @@ export const store = new Vuex.Store({
         show: payload.show,
         body: payload.body
       }
+    },
+    authenticate(state, payload) {
+      state.user = {
+        authenticated: true,
+        username: payload.username
+      }
     }
   }
 })
