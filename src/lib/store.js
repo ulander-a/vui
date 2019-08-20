@@ -12,7 +12,7 @@ export const store = new Vuex.Store({
     },
     user: {
       authenticated: false,
-      username: ''
+      username: null
     }
   },
   mutations: {
@@ -27,6 +27,12 @@ export const store = new Vuex.Store({
       state.user = {
         authenticated: true,
         username: payload.username
+      }
+    },
+    logout(state) {
+      state.user = {
+        authenticated: false,
+        username: null
       }
     }
   }

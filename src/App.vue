@@ -4,14 +4,10 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <!-- <span v-if="isLoggedIn">
-        |
-        <a @click="logout">Logout</a>
-      </span> | -->
       <router-link to="/api">API</router-link> |
 
       <router-link v-if="!isLoggedIn" to="/login">Login</router-link>
-      <router-link v-else to="#">Logout</router-link>
+      <Logout v-else />
     
     </div>
     <router-view />
@@ -20,11 +16,13 @@
 
 <script>
 import Messages from "./components/Messages";
+import Logout from './components/Logout'
 
 export default {
   name: "App",
   components: {
-    Messages
+    Messages,
+    Logout
   },
   computed: {
     isLoggedIn() {
