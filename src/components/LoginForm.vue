@@ -33,6 +33,7 @@ export default {
                     show: true,
                     body: `Welcome admin`
                 })
+                localStorage.setItem('dummyToken', 'dummyToken')
             } else {
                 this.$store.commit('setMessage', {
                     type: 'error',

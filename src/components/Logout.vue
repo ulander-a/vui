@@ -8,6 +8,7 @@ export default {
     methods: {
         logout: function() {
             // destroy token
+            localStorage.removeItem('dummyToken')
             this.$store.commit('logout')
             this.$store.commit('setMessage', {
                 type: 'success',

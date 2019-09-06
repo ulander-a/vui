@@ -2,13 +2,11 @@
   <div id="app">
     <Messages />
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/api">API</router-link> |
-
+      <router-link to="/">Home</router-link>|
+      <router-link to="/about">About</router-link>|
+      <router-link to="/api">API</router-link>|
       <router-link v-if="!isLoggedIn" to="/login">Login</router-link>
       <Logout v-else />
-    
     </div>
     <router-view />
   </div>
@@ -16,7 +14,7 @@
 
 <script>
 import Messages from "./components/Messages";
-import Logout from './components/Logout'
+import Logout from "./components/Logout";
 
 export default {
   name: "App",
@@ -26,7 +24,13 @@ export default {
   },
   computed: {
     isLoggedIn() {
-      return this.$store.state.user.authenticated
+      const token = localStorage.getItem("dummyToken");
+      if (token) {
+        console.log(token);
+        this.$store.commit("authenticate", { username: "admin" });
+      }
+
+      return this.$store.state.user.authenticated;
     }
   }
 };
