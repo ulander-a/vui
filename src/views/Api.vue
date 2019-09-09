@@ -6,8 +6,10 @@
       Current API:&nbsp;
       <span>SWAPI</span>
     </h2>
-    <Fetching v-if="isFetching" />
-    <DataDisplay v-bind:rawData="fromApi" />
+    <DataDisplay 
+      v-bind:rawData="fromApi" 
+      fetching="isFetching"
+    />
   </div>
 </template>
 

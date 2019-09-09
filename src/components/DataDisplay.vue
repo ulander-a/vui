@@ -1,6 +1,6 @@
 <template>
   <div id="data-display">
-    <DataTable v-if="toDisplay != null" :tableData="toDisplay" />
+    <DataTable :tableData="toDisplay" />
   </div>
 </template>
 
@@ -14,7 +14,8 @@ export default {
     return { toDisplay: null }
   },
   props: {
-    rawData: null
+    rawData: null,
+    fetching: false
   },
   watch: {
     rawData: function() {
