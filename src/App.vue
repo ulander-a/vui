@@ -31,7 +31,7 @@
 
     <v-app-bar app clipped-left>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>XConsole</v-toolbar-title>
+      <v-toolbar-title>{{ appName }}</v-toolbar-title>
       <div class="flex-grow-1"></div>
       <v-btn icon v-on:click="toggleTheme">
         <v-icon>mdi-theme-light-dark</v-icon>
@@ -39,6 +39,7 @@
     </v-app-bar>
 
     <v-content>
+      <Alerts />
       <v-container fluid>
         
         <router-view />
@@ -53,12 +54,15 @@
 </template>
 
 <script>
+import Alerts from '@/components/Alerts'
+
 export default {
   props: {
     source: String
   },
   data: () => ({
-    drawer: null
+    drawer: null,
+    appName: process.env.VUE_APP_NAME
   }),
   created() {
     this.$vuetify.theme.dark = true;
@@ -69,6 +73,9 @@ export default {
         ? (this.$vuetify.theme.dark = false)
         : (this.$vuetify.theme.dark = true);
     }
+  },
+  components: {
+    Alerts
   }
 };
 </script>

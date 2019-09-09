@@ -14,8 +14,7 @@ export default {
     return { toDisplay: null }
   },
   props: {
-    rawData: null,
-    fetching: false
+    rawData: null
   },
   watch: {
     rawData: function() {
