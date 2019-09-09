@@ -1,5 +1,12 @@
 <template>
-    <h1>Fetching...</h1>
+    <div class="text-center">
+        <v-progress-circular
+            indeterminate
+            color="primary"
+            :size="70"
+            :width="7"
+        ></v-progress-circular>
+    </div>
 </template>
 
 <script>

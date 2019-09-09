@@ -1,8 +1,18 @@
 export const cleanData = data => {
-    const columns = Object.keys(data.results[0])
-    const rows = data.results.map(res => Object.values(res))
+    const headers = Object.keys(data.results[0]).map(key => {
+        return {
+            text: key,
+            align: 'left',
+            sortable: true,
+            value: key
+        }
+    })
+
+    const rows = data.results
+    
     return {
-        columns: columns,
+        headers: headers,
         rows: rows
     }
 }
+
