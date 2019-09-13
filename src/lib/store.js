@@ -5,10 +5,10 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
-    message: {
+    alert: {
       type: null,
       show: false,
-      body: ''
+      content: ''
     },
     user: {
       authenticated: false,
@@ -16,11 +16,11 @@ export const store = new Vuex.Store({
     }
   },
   mutations: {
-    setMessage(state, payload) {
-      state.message = {
+    setAlert(state, payload) {
+      state.alert = {
         type: payload.type,
         show: payload.show,
-        body: payload.body
+        content: payload.content
       }
     },
     authenticate(state, payload) {

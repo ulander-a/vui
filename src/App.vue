@@ -39,7 +39,7 @@
     </v-app-bar>
 
     <v-content>
-      <Alerts />
+      <Alert />
       <v-container fluid>
         
         <router-view />
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import Alerts from '@/components/Alerts'
+import Alert from '@/components/Alert'
 
 export default {
   props: {
@@ -75,7 +75,7 @@ export default {
     }
   },
   components: {
-    Alerts
+    Alert
   }
 };
 </script>

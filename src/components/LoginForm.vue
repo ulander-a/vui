@@ -28,17 +28,17 @@ export default {
             
             if (email == 'admin@example.com' && password == 'password') {
                 this.$store.commit('authenticate', { username: 'admin' })
-                this.$store.commit('setMessage', {
+                this.$store.commit('setAlert', {
                     type: 'success',
                     show: true,
-                    body: `Welcome admin`
+                    content: `Welcome admin`
                 })
                 localStorage.setItem('dummyToken', 'dummyToken')
             } else {
-                this.$store.commit('setMessage', {
+                this.$store.commit('setAlert', {
                     type: 'error',
                     show: true,
-                    body: 'nah'
+                    content: 'nah'
                 })
             }
 
@@ -46,10 +46,10 @@ export default {
             //     .then(() => {
             //         console.log(email, password)
             //     })
-            //     .catch(err => this.$store.commit('setMessage', {
+            //     .catch(err => this.$store.commit('setAlert', {
             //         type: 'error',
             //         show: true,
-            //         body: err
+            //         content: err
             //     }))
         }
     }

@@ -10,10 +10,10 @@ export default {
             // destroy token
             localStorage.removeItem('dummyToken')
             this.$store.commit('logout')
-            this.$store.commit('setMessage', {
+            this.$store.commit('setAlert', {
                 type: 'success',
                 show: true,
-                body: 'Successfully logged out'
+                content: 'Successfully logged out'
             })
             // redirect to front page
         }

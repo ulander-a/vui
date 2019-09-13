@@ -34,19 +34,19 @@ export default {
         .then(res => res.json())
         .then(json => {
           this.isFetching = false
-          this.$store.commit('setMessage', {
+          this.$store.commit('setAlert', {
             type: 'success',
             show: true,
-            body: 'Got some data!'
+            content: 'Got some data!'
           })
           this.fromApi = json
         })
         .catch(err => {
           this.isFetching = false
-          this.$store.commit('setMessage', {
+          this.$store.commit('setAlert', {
             type: 'error',
             show: true,
-            body: err
+            content: err
           })
         })
     }

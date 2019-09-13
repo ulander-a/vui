@@ -51,10 +51,10 @@ export default {
       this.$store
         .dispatch("register", data)
         .then(() => this.$router.push("/"))
-        .catch(err => this.$store.commit('setMessage', {
+        .catch(err => this.$store.commit('setAlert', {
             type: 'error',
             show: true,
-            body: err
+            content: err
         }))
     }
   }
