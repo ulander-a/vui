@@ -5,6 +5,9 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
+    meta: {
+      theme: 'dark'
+    },
     alert: {
       type: null,
       show: false,

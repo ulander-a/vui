@@ -4,6 +4,9 @@
             :headers="tableData.headers"
             :items="tableData.rows"
         >
+            <template v-slot:item.name="{ item }">
+                <router-link :to="(`/details/${1}`)">{{ item.name }}</router-link>
+            </template>
         </v-data-table>
         <v-data-table
             v-else
