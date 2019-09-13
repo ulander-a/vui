@@ -1,7 +1,5 @@
 <template>
-  <v-container id="message-container" v-if="alert.show">
-    <v-alert v-model="alert.show" :type="alert.type" :dismissible="true">{{ alert.content }}</v-alert>
-  </v-container>
+    <v-alert v-model="alert.show" :type="alert.type" :dismissible="true" transition="slide-y-transition">{{ alert.content }}</v-alert>
 </template>
 
 <script>

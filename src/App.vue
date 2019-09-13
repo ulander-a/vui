@@ -39,9 +39,9 @@
     </v-app-bar>
 
     <v-content>
-      <Alert />
       <v-container fluid>
         
+        <Alert />
         <router-view />
       
       </v-container>
