@@ -31,7 +31,11 @@
 
     <v-app-bar app clipped-left>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>{{ appName }}</v-toolbar-title>
+      <v-toolbar-title>
+        <span>{{ appName }}</span>
+        <span v-if="!authenticated" id="logged-in-text">&nbsp;/&nbsp;Not logged in</span>
+        <span v-else id="logged-in-text" style="color: green;">&nbsp;/&nbsp;Logged in</span>
+      </v-toolbar-title>
       <div class="flex-grow-1"></div>
       <v-btn icon v-on:click="toggleTheme">
         <v-icon>mdi-theme-light-dark</v-icon>
@@ -40,10 +44,8 @@
 
     <v-content>
       <v-container fluid>
-        
         <Alert />
         <router-view />
-      
       </v-container>
     </v-content>
 
@@ -54,7 +56,7 @@
 </template>
 
 <script>
-import Alert from '@/components/Alert'
+import Alert from "@/components/Alert";
 
 export default {
   props: {
@@ -74,8 +76,21 @@ export default {
         : (this.$vuetify.theme.dark = true);
     }
   },
+  computed: {
+    authenticated: {
+      get() {
+        return this.$store.state.user.authenticated;
+      }
+    }
+  },
   components: {
     Alert
   }
 };
 </script>
+
+<style scoped>
+#logged-in-text {
+  color: lightcoral;
+}
+</style>

@@ -34,6 +34,8 @@ export default {
                     content: `Welcome admin`
                 })
                 localStorage.setItem('dummyToken', 'dummyToken')
+                this.$store.commit('authenticate', { username: 'admin' } )
+                console.log(this.$store.state.user.authenticated)
             } else {
                 this.$store.commit('setAlert', {
                     type: 'error',
